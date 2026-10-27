@@ -33,7 +33,7 @@ BenchmarkBinaryRead3-8              3000            508578 ns/op
     io_test.go:76: Result: 163300500 (N: 100)
     io_test.go:76: Result: 4899015000 (N: 3000)
 PASS
-ok      github.com/OpenMellon/openpdf/unitype 10.357s
+ok      github.com/OpenMellon/unitype 10.357s
 */
 
 func BenchmarkBinaryRead(b *testing.B) {

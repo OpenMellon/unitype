@@ -15,7 +15,7 @@ import (
 
 	"golang.org/x/text/encoding/charmap"
 
-	"github.com/OpenMellon/openpdf/unitype/internal/strutils"
+	"github.com/OpenMellon/unitype/internal/strutils"
 )
 
 // nameTable represents the Naming table (name).
