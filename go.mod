@@ -1,6 +1,8 @@
 module github.com/OpenMellon/unitype
 
-go 1.27.3
+go 1.26.0
+
+toolchain go1.27.3
 
 require (
 	github.com/sirupsen/logrus v1.10.2
