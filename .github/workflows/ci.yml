@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          # Development toolchain, from the toolchain line in go.mod.
+          - go-version-file: go.mod
+            gotoolchain: auto
+          # The minimum consumers need, from the go line; local stops it switching up.
+          - go-version: 1.26.x
+            gotoolchain: local
+    env:
+      GOTOOLCHAIN: ${{ matrix.gotoolchain }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: ${{ matrix.go-version-file }}
+          go-version: ${{ matrix.go-version }}
+      - run: go build ./...
+      - run: go test ./...
