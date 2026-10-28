@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      # Rejects staged files over 5,000 tokens (bytes / 4); the error message explains how to split them
+      - id: max-file-tokens
+        name: max file tokens
+        language: script
+        entry: scripts/check-file-tokens.sh
