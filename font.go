@@ -59,7 +59,7 @@ type font struct {
 }
 
 // Returns an error in strict mode, otherwise adds the incompatibility to a list of noted incompatibilities.
-func (f *font) recordIncompatibilityf(fmtstr string, a ...interface{}) error {
+func (f *font) recordIncompatibilityf(fmtstr string, a ...any) error {
 	str := fmt.Sprintf(fmtstr, a...)
 	if f.strict {
 		return fmt.Errorf("incompatibility: %s", str)

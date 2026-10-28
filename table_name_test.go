@@ -98,7 +98,7 @@ func TestGetNameRecords(t *testing.T) {
 			"./testdata/FreeSans.ttf",
 			3,
 			map[uint16]map[uint16]string{
-				0: map[uint16]string{
+				0: {
 					0:  "Copyleft 2002, 2003, 2005 Free Software Foundation.",
 					1:  "FreeSans",
 					2:  "Medium",
@@ -110,7 +110,7 @@ func TestGetNameRecords(t *testing.T) {
 					14: "http://www.gnu.org/copyleft/gpl.html",
 					19: "The quick brown fox jumps over the lazy dog.",
 				},
-				1033: map[uint16]string{
+				1033: {
 					0:  "Copyleft 2002, 2003, 2005 Free Software Foundation.",
 					1:  "FreeSans",
 					2:  "Medium",
@@ -122,7 +122,7 @@ func TestGetNameRecords(t *testing.T) {
 					14: "http://www.gnu.org/copyleft/gpl.html",
 					19: "The quick brown fox jumps over the lazy dog.",
 				},
-				1060: map[uint16]string{
+				1060: {
 					2:  "navadno",
 					13: "Dovoljena je uporaba v skladu z licenco GNU General Public License.",
 					14: "http://www.gnu.org/copyleft/gpl.html",
@@ -134,7 +134,7 @@ func TestGetNameRecords(t *testing.T) {
 			"./testdata/wts11.ttf",
 			4,
 			map[uint16]map[uint16]string{
-				0: map[uint16]string{
+				0: {
 					0:  "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.",
 					1:  "HanWang KaiBold-Gb5",
 					2:  "Regular",
@@ -147,7 +147,7 @@ func TestGetNameRecords(t *testing.T) {
 					13: "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.",
 					14: "http://www.gnu.org/licenses/gpl.txt",
 				},
-				1028: map[uint16]string{
+				1028: {
 					0:  "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.",
 					1:  "王漢宗粗楷體簡",
 					2:  "Regular",
@@ -160,7 +160,7 @@ func TestGetNameRecords(t *testing.T) {
 					13: "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.",
 					14: "http://www.gnu.org/licenses/gpl.txt",
 				},
-				1033: map[uint16]string{
+				1033: {
 					0:  "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.",
 					1:  "HanWang KaiBold-Gb5",
 					2:  "Regular",
@@ -173,7 +173,7 @@ func TestGetNameRecords(t *testing.T) {
 					13: "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.",
 					14: "http://www.gnu.org/licenses/gpl.txt",
 				},
-				2052: map[uint16]string{
+				2052: {
 					0:  "(C)Copyright Dr. Hann-Tzong Wang, 2002-2004.",
 					1:  "王汉宗粗楷体简",
 					2:  "Regular",

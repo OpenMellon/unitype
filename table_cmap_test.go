@@ -95,7 +95,7 @@ func TestCmapTableReadWrite(t *testing.T) {
 					1,
 					0,
 					256,
-					105, //42645 - 42390 + 1, not counting notdefs
+					105, // 42645 - 42390 + 1, not counting notdefs
 					map[rune]GlyphIndex{},
 				},
 				"4,3,1": {

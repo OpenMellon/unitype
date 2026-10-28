@@ -3,8 +3,8 @@ Acknowledgements
 
 UniType contains code from or depends on the following open source projects:
 
-* [The standard Go library](https://golang.org/pkg/#stdlib), 
-  
+* [The standard Go library](https://golang.org/pkg/#stdlib),
+
 ```
 Copyright (c) 2009 The Go Authors. All rights reserved.
 
@@ -34,4 +34,3 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
-

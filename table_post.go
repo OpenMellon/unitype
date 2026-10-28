@@ -15,12 +15,11 @@ import (
 // This table contains additional information needed for use on PostScript printers.
 // Includes FontInfo dictionary entries and the PostScript names of all glyphs.
 //
-// - version 1.0 is used the font file contains exactly the 258 glyphs in the standard Macintosh TrueType font file.
-//   Glyph list on: https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6post.html
-// - version 2.0 is used for fonts that contain some glyphs not in the standard set or have different ordering.
-// - version 2.5 can handle nonstandard ordering of the standard mac glyphs via offsets.
-// - other versions do not contain post glyph name data.
-//
+//   - version 1.0 is used the font file contains exactly the 258 glyphs in the standard Macintosh TrueType font file.
+//     Glyph list on: https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6post.html
+//   - version 2.0 is used for fonts that contain some glyphs not in the standard set or have different ordering.
+//   - version 2.5 can handle nonstandard ordering of the standard mac glyphs via offsets.
+//   - other versions do not contain post glyph name data.
 type postTable struct {
 	// header (all versions).
 	version            fixed

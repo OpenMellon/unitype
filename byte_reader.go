@@ -63,7 +63,7 @@ func (r *byteReader) readBytes(bp *[]byte, length int) error {
 }
 
 // readSlice reads a series of values into `slice` from `r` (big endian).
-func (r *byteReader) readSlice(slice interface{}, length int) error {
+func (r *byteReader) readSlice(slice any, length int) error {
 	switch t := slice.(type) {
 	case *[]uint8:
 		for i := 0; i < length; i++ {
@@ -114,7 +114,7 @@ func (r *byteReader) readSlice(slice interface{}, length int) error {
 }
 
 // read reads a series of fields from `r`.
-func (r byteReader) read(fields ...interface{}) error {
+func (r byteReader) read(fields ...any) error {
 	for _, f := range fields {
 		switch t := f.(type) {
 		case **f2dot14:

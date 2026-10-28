@@ -17,7 +17,7 @@ for certain glyphs is easier than reconstructing the whole thing from memory (wh
 
 Validation requires loading and analyzing the font tables and both their individual content and how it
 fits together.  Subsetting requires locating content for input glyph indices and regenerating font with
-only data for the desires glyphs (and updated tables) with the output being a new valid font file and 
+only data for the desires glyphs (and updated tables) with the output being a new valid font file and
 an updated glyph index map mapping new desired glyph indices to their new index.
 Extraction requires mapping unicode runes to glyph index (understanding the cmap tables mostly, and potentially
 OCR in cases where the cmaps are unreliable).
@@ -96,8 +96,3 @@ The generation of the CIDToGIDMap assumes that the original CID:GID mapping was 
 and the deviation is due to changes in the glyph indices, so each entry will
 be CID:newGID value
 0:1:2:3:4:5:6...
-
-
-
-
-

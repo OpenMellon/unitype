@@ -122,25 +122,19 @@ func (gd *gdefTable) Unmarshal(br *byteReader) error {
 }
 
 // GDEF GlyphClassDef subtable.
-type gdefGlyphClassDef struct {
-}
+type gdefGlyphClassDef struct{}
 
 // GDEF AttachmentList subtable.
-type gdefAttachmentList struct {
-}
+type gdefAttachmentList struct{}
 
 // GDEF LigatureCaretList subtable.
-type gdefLigatureCaretList struct {
-}
+type gdefLigatureCaretList struct{}
 
 // GDEF MarkAttachClassDef subtable.
-type gdefMarkAttachClassDef struct {
-}
+type gdefMarkAttachClassDef struct{}
 
 // GDEF MarkGlyphSetsTable subtable.
-type gdefMarkGlyphSetsTable struct {
-}
+type gdefMarkGlyphSetsTable struct{}
 
 // GDEF ItemVariationStore subtable.
-type gdefItemVariationStore struct {
-}
+type gdefItemVariationStore struct{}

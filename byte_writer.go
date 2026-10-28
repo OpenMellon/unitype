@@ -60,10 +60,7 @@ func (w *byteWriter) checksum() uint32 {
 
 	for i := 0; i < len(data); i += 4 {
 		a := i
-		b := i + 4
-		if b > len(data) {
-			b = len(data)
-		}
+		b := min(i+4, len(data))
 
 		dup := make([]byte, 4)
 		copy(dup, data[a:b])
@@ -88,7 +85,7 @@ func (w *byteWriter) writeBytes(b []byte) error {
 	return err
 }
 
-func (w *byteWriter) writeSlice(slice interface{}) error {
+func (w *byteWriter) writeSlice(slice any) error {
 	switch t := slice.(type) {
 	case *[]uint8:
 		slice = *t
@@ -143,7 +140,7 @@ func (w *byteWriter) writeSlice(slice interface{}) error {
 }
 
 // Write a series of values to `w`.
-func (w *byteWriter) write(fields ...interface{}) error {
+func (w *byteWriter) write(fields ...any) error {
 	for _, f := range fields {
 		switch t := f.(type) {
 		case fixed:

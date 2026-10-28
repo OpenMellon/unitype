@@ -11,7 +11,7 @@ import (
 	"io"
 	"math"
 	"os"
-	"sort"
+	"slices"
 
 	"github.com/sirupsen/logrus"
 )
@@ -98,7 +98,8 @@ func (f *Font) GetCmap(platformID, encodingID int) map[rune]GlyphIndex {
 func (f *Font) LookupRunes(runes []rune) []GlyphIndex {
 	var maps []map[rune]GlyphIndex
 	// Search order (3,1), (1,0), (0,3), (3,10).
-	maps = append(maps,
+	maps = append(
+		maps,
 		f.GetCmap(3, 1),
 		f.GetCmap(1, 0),
 		f.GetCmap(0, 3),
@@ -320,10 +321,7 @@ func (f *Font) SubsetFirst(numGlyphs int) (*Font, error) {
 			newfnt.hmtx.hMetrics = newfnt.hmtx.hMetrics[0:numGlyphs]
 			newfnt.hmtx.leftSideBearings = nil
 		} else {
-			numKeep := numGlyphs - len(newfnt.hmtx.hMetrics)
-			if numKeep > len(newfnt.hmtx.leftSideBearings) {
-				numKeep = len(newfnt.hmtx.leftSideBearings)
-			}
+			numKeep := min(numGlyphs-len(newfnt.hmtx.hMetrics), len(newfnt.hmtx.leftSideBearings))
 			newfnt.hmtx.leftSideBearings = newfnt.hmtx.leftSideBearings[0:numKeep]
 		}
 		newfnt.optimizeHmtx()
@@ -423,9 +421,7 @@ func (f *Font) SubsetFirst(numGlyphs int) (*Font, error) {
 					}
 					charcodes = append(charcodes, cc)
 				}
-				sort.Slice(charcodes, func(i, j int) bool {
-					return charcodes[i] < charcodes[j]
-				})
+				slices.Sort(charcodes)
 
 				segments := 0
 				i := 0
@@ -482,9 +478,7 @@ func (f *Font) SubsetFirst(numGlyphs int) (*Font, error) {
 					}
 					charcodes = append(charcodes, cc)
 				}
-				sort.Slice(charcodes, func(i, j int) bool {
-					return charcodes[i] < charcodes[j]
-				})
+				slices.Sort(charcodes)
 
 				i := 0
 				for i < len(charcodes) {

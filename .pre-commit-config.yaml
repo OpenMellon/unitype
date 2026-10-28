@@ -1,6 +1,56 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-added-large-files
+      - id: detect-private-key
+
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: v1.0.0-rc.4
+    hooks:
+      # Go Vet
+      - id: go-vet-mod
+        args: [ "-composites=false" ]
+
+      # Formatters
+      - id: go-imports
+        args: [ "-w" ]
+      - id: go-fumpt   # install with `go install mvdan.cc/gofumpt@latest`
+        args: [ "-w" ]
+
+      # Go Mod Tidy
+      - id: go-mod-tidy-repo
+
+      # Go Test
+      - id: go-test-repo-mod
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+
   - repo: local
     hooks:
+      # Applies the Go modernizers (min/max, slices, maps, any, range-over-int, ...)
+      - id: go-fix
+        name: go fix
+        language: system
+        entry: go fix -inline=false -rangeint=false ./...
+        types: [go]
+        pass_filenames: false
+
       # Rejects staged files over 5,000 tokens (bytes / 4); the error message explains how to split them
       - id: max-file-tokens
         name: max file tokens

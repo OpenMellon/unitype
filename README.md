@@ -49,6 +49,5 @@ $ $ ./truecli info --trec myfnt.ttf
   post: 283.82 kB
   prep: 676 B
   vhea: 36 B
-  vmtx: 114.09 kB 
+  vmtx: 114.09 kB
 ```
-

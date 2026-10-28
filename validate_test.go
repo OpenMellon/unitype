@@ -40,5 +40,4 @@ func TestFontValidation(t *testing.T) {
 		diff := time.Now().Sub(start)
 		t.Logf("- took: %s", diff.String())
 	}
-
 }

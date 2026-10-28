@@ -117,7 +117,7 @@ type cmapSubtable struct {
 	platformID int
 	encodingID int
 
-	ctx interface{} // The specific subtable, e.g. cmapSubtableFormat0, etc.
+	ctx any // The specific subtable, e.g. cmapSubtableFormat0, etc.
 
 	// TODO: Need GID to rune map too? or just a list of runes (with length = numGlyphs, i.e. one rune per gid)
 	cmap                map[rune]GlyphIndex
@@ -194,9 +194,7 @@ func (f *font) parseCmapSubtableFormat0(r *byteReader, platformID, encodingID in
 
 func writeCmapSubtableFormat0(subtable *cmapSubtable, w *byteWriter) error {
 	subt := subtable.ctx.(cmapSubtableFormat0)
-	var (
-		format uint16
-	)
+	var format uint16
 	subt.length = 3*2 + 256
 	err := w.write(format, subt.length, subt.language)
 	if err != nil {
@@ -342,9 +340,7 @@ func (f *font) parseCmapSubtableFormat4(r *byteReader, platformID, encodingID in
 
 func writeCmapSubtableFormat4(subtable *cmapSubtable, w *byteWriter) error {
 	subt := subtable.ctx.(cmapSubtableFormat4)
-	var (
-		format uint16
-	)
+	var format uint16
 	format = 4
 	// TODO(gunnsth): Not the place to generate this?  Somewhere else should have ability to generate
 	//       based on character codes.
@@ -437,9 +433,7 @@ func (f *font) parseCmapSubtableFormat6(r *byteReader, platformID, encodingID in
 
 func writeCmapSubtableFormat6(subtable *cmapSubtable, w *byteWriter) error {
 	subt := subtable.ctx.(cmapSubtableFormat6)
-	var (
-		format uint16
-	)
+	var format uint16
 	format = 6
 	subt.length = 5*2 + 2*uint16(len(subt.glyphIDArray))
 	err := w.write(format, subt.length, subt.language, subt.firstCode, subt.entryCount)
@@ -530,9 +524,7 @@ func (f *font) parseCmapSubtableFormat12(r *byteReader, platformID, encodingID i
 
 func writeCmapSubtableFormat12(subtable *cmapSubtable, w *byteWriter) error {
 	subt := subtable.ctx.(cmapSubtableFormat12)
-	var (
-		format uint16
-	)
+	var format uint16
 	format = 12
 	subt.length = 2*2 + 3*4 + uint32(len(subt.groups))*3*4
 	err := w.write(format, subt.reserved, subt.length, subt.language, subt.numGroups)

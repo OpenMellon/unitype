@@ -46,14 +46,16 @@ Offset16  Short offset to a table, same as uint16, NULL offset = 0x0000
 Offset32  Long offset to a table, same as uint32, NULL offset = 0x00000000
 */
 
-type fixed int32
-type fword int16
-type ufword uint16
-type f2dot14 int16
-type longdatetime int64
-type tag [4]uint8
-type offset16 uint16
-type offset32 uint32
+type (
+	fixed        int32
+	fword        int16
+	ufword       uint16
+	f2dot14      int16
+	longdatetime int64
+	tag          [4]uint8
+	offset16     uint16
+	offset32     uint32
+)
 
 func (t tag) String() string {
 	return strings.TrimSpace(string(t[:]))
